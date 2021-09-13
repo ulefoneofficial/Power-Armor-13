@@ -1,0 +1,5 @@
+config PRIZE_IR_CAMERA_MOTOR
+	bool "IR Camera Motor"
+	default n
+	help
+	  prize ir camera motor driver

@@ -1,0 +1,168 @@
+#
+#Fingerprint
+#
+menu "Fingerprint support"
+	depends on INPUT
+
+config MTK_FINGERPRINT_SUPPORT
+	bool "Mediatek Fingerprint"
+	default n
+	help
+	  Fingerprint mtk driver enable/disable
+	  in the kernel.Say Y here if you want to
+	  use mediatek fingerprint driver,fingerprint
+	  driver will support fingerprint function
+
+if MTK_FINGERPRINT_SUPPORT
+config MTK_FINGERPRINT_SELECT
+	string "sensor type"
+	default "GF318M"
+
+config MTK_FINGERPRINT_SUPPORT_LIST
+	string "sensor type"
+    help
+      Set touch IC name if you have touch panel.
+
+      To compile this dirver for used touch IC.
+
+if MTK_FINGERPRINT_SELECT = "FPC1145"
+config FPC_FINGERPRINT
+	bool "FPC Fingerprint"
+	default y
+	help
+	  FPC fingerprint FPC's 102x/104x device.
+endif
+
+if MTK_FINGERPRINT_SELECT = "GF318M" ||  MTK_FINGERPRINT_SELECT = "GF5216"
+config GOODIX_FINGERPRINT
+	bool "Goodix Fingerprint"
+#prize modify by mhy start
+	default n
+#prize modify by mhy end
+	help
+	  Goodix Fingerprint chip GF316M/GF318M/
+	  GF3118M/GF518M/GF5118M/GF516M/GF816M/
+	  GF3208/GF3206/GF3266/GF3288/GF5206/
+	  GF5216/GF5208 TEE driver
+
+config GOODIX_SENSOR_TYPE
+	string "SENSOR_TYPE"
+	default "GF5216"
+	help
+	  Must input sensor type, or default is
+	  GF316M GF318M GF3118M GF518M GF5118M
+	  GF516M GF816M GF3208 GF3206 GF3266
+	  GF3288 GF5206 GF5216 GF5208
+endif
+# begin, prize-pengguangyi-20190121, add for goodix gf5118m fp
+config GOODIX_GF5118M_FINGERPRINT
+	bool "Goodix GF5118M Fingerprint"
+	default n
+	---help---
+	Goodix Fingerprint chip GF316M/GF318M/GF3118M/GF518M/GF5118M/GF516M/GF816M/GF3208/GF3206/GF3266/GF3288/GF5206 TEE driver
+# end, prize-pengguangyi-20190121, add for goodix gf5118m fp
+
+#prize-add-pengzhipeng-20191105-start
+if MTK_FINGERPRINT_SELECT = "ft9362"
+  config FT9362_FINGERPRINT
+     bool "FT9362 Fingerprint"
+     default y
+     ---help---
+     MICROARRAY fingerprint FT9362's device.
+endif
+
+if MTK_FINGERPRINT_SELECT = "ft9362_tee"
+  config FT9362_FINGERPRINT_TEE
+     bool "FT9362 TEE Fingerprint"
+     default y
+     ---help---
+     MICROARRAY fingerprint FT9362 TEE's device.
+endif
+if MTK_FINGERPRINT_SELECT = "sunwave_driver_all_in_one"
+  config MTK_FINGERPRINT_SUNWAVECORP
+       bool "Sunwave Fingerprint"
+       default y
+	---help---
+     MICROARRAY fingerprint Sunwave's device.
+endif
+#prize-add-pengzhipeng-20191105-end
+
+#prize added by huarui, add fp driver, 20190327-start
+if MTK_FINGERPRINT_SELECT = "chipone_ree"
+config CHIPONE_FINGERPRINT_REE
+	bool "CHIPONE Fingerprint"
+	default y
+	help
+	  CHIPONE fingerprint CHIPONE's device.
+endif
+#prize added by huarui, add tp driver, 20190327-end
+#prize-add finger-tangcong-20200715-start
+if MTK_FINGERPRINT_SELECT = "betterlife_tee"
+config BETTERLIFE_FINGERPRINT
+    bool "betterlife Fingerprint"
+	default y
+	---help---
+	betterlife fingerprint.
+endif
+#prize-add finger-tangcong-20200715-end
+
+#prize add by lipengpeng 20200628 start
+if MTK_FINGERPRINT_SELECT = "chipone_tee"
+config CHIPONE_FINGERPRINT_TEE
+	bool "CHIPONE Fingerprint"
+	default y
+	help
+	  CHIPONE fingerprint CHIPONE's device.
+endif
+#prize add by lipengpeng 20200628 end
+
+
+endif
+#prize added by huarui, add fp driver, 20190327-start
+config PRIZE_FP_USE_VFP
+	bool "Fingerprint power vfp"
+	default n
+	help
+	  CHIPONE fingerprint CHIPONE's device.
+#prize added by huarui, add tp driver, 20190327-end
+
+#prize-add finger-wangyongsheng-20210204-start
+if MTK_FINGERPRINT_SELECT = "cdfinger_ree"
+config CDFINGER_REE
+    bool "cdfinger Fingerprint"
+	default y
+	---help---
+	cdfinger fingerprint.
+endif
+#prize-add finger-wangyongsheng-20210204-end
+
+if MTK_FINGERPRINT_SELECT = "fortsense_ree"
+config MTK_FINGERPRINT_FORTSENSE
+    bool "cdfinger Fingerprint"
+	default y
+	---help---
+	cdfinger fingerprint.
+endif
+
+#prize added by chenjiaxi, fortsense fingerprint, 20210410-start
+if MTK_FINGERPRINT_SELECT = "fortsense_real_ree"
+  config MTK_FINGERPRINT_FORTSENSE_REAL_REE
+       bool "Fortsense Fingerprint"
+       default y
+	---help---
+     fortsense fingerprint Fortsense's device.
+endif
+#prize added by chenjiaxi, fortsense fingerprint, 20210410-end
+
+
+#prize-add finger-wangyongsheng-20210327-start
+if MTK_FINGERPRINT_SELECT = "microarray_fp"
+config MICROARRAY_FP
+    bool "microarray Fingerprint"
+	default y
+	---help---
+	microarray fingerprint.
+endif
+#prize-add finger-wangyongsheng-20210327-end
+
+endmenu

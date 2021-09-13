@@ -1,0 +1,48 @@
+#ifdef CONFIG_PRIZE_CV8035D_SUPPORT
+/*prize-sunshuai-20200701, add for wireless power receiver cv8035  start*/
+
+&lk_charger {
+     max_charger_voltage = <9500000>;
+};
+
+&charger {
+     max_charger_voltage = <9500000>;
+};
+
+&i2c3 {
+	wrx: wrx@50 {
+		compatible = "cvs,cv8035d";
+		reg = <0x50>;		
+		irq-gpio = <&pio 8 0>;
+		statu-gpio = <&pio 13 0>;
+		pinctrl-names = "default", "charger_otg_off", "charger_otg_on";
+		pinctrl-0 = <&charger_otg_pins_default>;
+		pinctrl-1 = <&charger_otg_pin_en0>;
+		pinctrl-2 = <&charger_otg_pin_en1>;
+		firmware_updata_feature = <1>; //  1 turn on  0 turn off
+		status = "okay";
+	};
+};
+
+&pio {
+        charger_otg_pins_default: charger_otg_default {
+        };
+
+        charger_otg_pin_en0:  charger_otg_en@0 {
+            pins_cmd_dat {
+                        pinmux = <PINMUX_GPIO17__FUNC_GPIO17>;
+                        slew-rate = <1>;
+                        output-low;
+                };
+        };
+        charger_otg_pin_en1:  charger_otg_en@1 {
+            pins_cmd_dat {
+                        pinmux = <PINMUX_GPIO17__FUNC_GPIO17>;
+                        slew-rate = <1>;
+                        output-high;
+                };
+        };
+};
+
+/*prize-sunshuai-20200701, add for wireless power receiver cv8035  end*/
+#endif

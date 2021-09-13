@@ -1,0 +1,96 @@
+/*
+ * Copyright (c) 2019 MediaTek Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+/* UHF GPIO standardization */
+&pio {
+	uhf_pins_uhfprt_gpio_funen0: uhf@0 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO78__FUNC_GPIO78>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	uhf_pins_uhfprt_gpio_funen1: uhf@1 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO78__FUNC_GPIO78>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	uhf_pins_uhf_3V_enable0: uhf@2 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	uhf_pins_uhf_3V_enable1: uhf@3 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	uhf_pins_uhf_ir_boost0: uhf@4 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO93__FUNC_GPIO93>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	uhf_pins_uhf_ir_boost1: uhf@5 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO93__FUNC_GPIO93>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	uhf_pins_uhf_tof_pwr0: uhf@6 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO92__FUNC_GPIO92>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	uhf_pins_uhf_tof_pwr1: uhf@7 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO92__FUNC_GPIO92>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	uhf_pins_uhf_gpio_default: uhfdefault {
+	};
+};
+&uhf {
+	pinctrl-names = "uhf_gpio_default",
+			"uhfprt_gpio_funen0", "uhfprt_gpio_funen1",
+			"uhf_3V_enable0", "uhf_3V_enable1",
+			"uhf_IR_boost0", "uhf_IR_boost1",
+			"uhf_tof_pwr0", "uhf_tof_pwr1";
+	pinctrl-0 = <&uhf_pins_uhf_gpio_default>;
+	pinctrl-1 = <&uhf_pins_uhfprt_gpio_funen0>;
+	pinctrl-2 = <&uhf_pins_uhfprt_gpio_funen1>;
+	pinctrl-3 = <&uhf_pins_uhf_3V_enable0>;
+	pinctrl-4 = <&uhf_pins_uhf_3V_enable1>;
+	pinctrl-5 = <&uhf_pins_uhf_ir_boost0>;
+	pinctrl-6 = <&uhf_pins_uhf_ir_boost1>;
+	pinctrl-7 = <&uhf_pins_uhf_tof_pwr0>;
+	pinctrl-8 = <&uhf_pins_uhf_tof_pwr1>;
+	gpio_uhfprt_en = <&pio 78 0>;
+	gpio_uhf_3V_enable = <&pio 0 0>;
+	gpio_uhf_ir_boost = <&pio 93 0>;
+	gpio_uhf_tof_pwr = <&pio 92 0>;
+	
+	status = "okay";
+};
+/* UHF GPIO end */

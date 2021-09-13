@@ -1,0 +1,8 @@
+
+config PRIZE_DIGITAL_LCD_TM1621D
+  bool "prize digital lcd"
+  default n
+  help
+     digital lcd driver.
+
+

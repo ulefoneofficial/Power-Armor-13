@@ -1,0 +1,15 @@
+config MANUFACTOR_NFC_NXP533
+	tristate "NXP PN533 NFC driver"
+	depends on I2C
+	default n
+	---help---
+	  NXP PN547 core driver.
+	  This is a driver based on the HCI NFC kernel layers and
+	  will thus not work with NXP libnfc library.
+
+config REGIGISTER_DYNAMIC
+	tristate "Dynamic register device"
+	default n
+	help
+	Say yes if you want Dynamic register device according to whether the chip is work in PN547 NFC driver.
+	This is by means of i2c connected communication with chip.

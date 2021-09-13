@@ -1,0 +1,16 @@
+#
+# Focaltech Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_FTS
+    bool "tlsc6x Touchscreen"
+    default n
+    help
+      Say Y here if you have tlsc6x touch panel.
+      If unsure, say N.
+      
+config TOUCHSCREEN_FTS_DIRECTORY
+    string "tlsc6x ts directory name"
+    default "focaltech_touch"
+    depends on TOUCHSCREEN_FTS
+    

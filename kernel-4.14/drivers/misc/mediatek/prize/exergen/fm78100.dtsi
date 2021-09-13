@@ -1,0 +1,14 @@
+&odm {
+	exergen: exergen {
+		compatible = "mediatek,exergen";
+		status = "okay";
+	};
+};
+&i2c6 {
+	exergen@44{
+		compatible = "exergen,fm78100";
+		reg = <0x44>;
+		exergen_pdn_pin = <&pio 169 0>;	//ir vdd
+		status = "okay";
+	};
+};

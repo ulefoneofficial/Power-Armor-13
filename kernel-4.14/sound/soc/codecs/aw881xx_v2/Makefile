@@ -1,0 +1,1 @@
+obj-y += aw881xx.o aw881xx_monitor.o aw881xx_cali.o

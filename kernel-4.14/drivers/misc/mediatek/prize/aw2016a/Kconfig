@@ -1,0 +1,5 @@
+config PRIZE_LEDS_AW2016
+	tristate "LED Support for AW2016"
+	help
+		this option enables support for the AW2016 RGB LED connected
+		through I2C. Say Y to enable support for the AW2016 LED

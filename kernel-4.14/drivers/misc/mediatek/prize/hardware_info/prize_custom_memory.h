@@ -1,0 +1,6 @@
+char Cust_emmc_support[][50]={
+{"VX : KM5V8001DM_B622_VX"},
+{"VE : KM5C7001DM_B622_VE"},
+{"VQ : KM5H7001DM_B424_VQ"},
+{"PG : SMVJG8KZZAD8FQFSL_UT_PG"},	
+};

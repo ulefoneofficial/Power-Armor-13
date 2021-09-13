@@ -1,0 +1,14 @@
+config PRIZE_LCD_BIAS
+  bool "prize lcd bias"
+  default n
+  help
+    lcd bias driver.
+
+config PRIZE_TPS65132_SUPPORT
+  bool "prize tps65132"
+  default n
+  select PRIZE_LCD_BIAS
+  help
+    tps65132 bias driver.
+
+

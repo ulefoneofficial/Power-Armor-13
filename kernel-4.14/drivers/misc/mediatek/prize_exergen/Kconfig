@@ -1,0 +1,23 @@
+#liaojie prize exergen 20210128 start
+config PRIZE_NEW_EXERGEN
+        tristate "prize exergen for Mediatek package"
+        default n
+        help
+          Say y here if you have prize exergen.
+          If unsure, say N.
+#liaojie prize exergen 20210128 end
+#liaojie prize exergen 20210128 start
+config EXERGEN_FM78100
+        tristate "prize exergen fm78100 for Mediatek package"
+        default n
+        help
+          Say y here if you have prize exergen.
+          If unsure, say N.
+#liaojie prize exergen 20210128 end
+#liaojie prize exergen 20210128 start
+config PRIZE_EXERGEN_SELECT_LIST
+		string "sensor type"
+		help
+		Say y here if you have prize exergen.
+		If unsure, say N.
+#liaojie prize exergen 20210128 end

@@ -1,0 +1,8 @@
+config MTK_FINGERPRINT
+        tristate "Chipone fpsensor Finger Print Driver"
+        default n
+        help
+          Chipone Finger Print Supported
+
+
+

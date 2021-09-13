@@ -1,0 +1,5 @@
+config PRIZE_LED_AW2028
+	bool "IRLED AW36515 "
+	default n
+	help
+	  prize led aw2028 driver

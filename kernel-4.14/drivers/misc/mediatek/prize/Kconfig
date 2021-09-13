@@ -1,0 +1,100 @@
+config PRIZE_LCD_BIAS
+  bool CONFIG_PRIZE_LCD_BIAS
+  default no
+  help
+    CONFIG_PRIZE_LCD_BIAS
+
+# prize-dingjun-20150410-start
+config PRIZE_HALL
+	bool "hall device"
+	default n
+	help
+	  Select Y to enable hall device support
+# prize-dingjun-20150410-end
+
+#prize add by huarui, sos torch , 20200402 start
+config PRIZE_TORCH
+	bool "torch with fun"
+	default n
+	help
+	  Select Y to enable prize torch
+#prize add by huarui, sos torch , 20200402 start
+
+# prize-huangjiwu-20201217-start
+config PRIZE_BAT_DET
+	bool "bat det device"
+	default n
+	help
+	  Select Y to enable bat det device support
+# prize-huangjiwu-20201217-end
+#prize add by huarui, hoperf hp5804 , 20200402 start
+config PRIZE_BAROMETER_H5804
+	bool "water barometer with h5804"
+	default n
+	help
+	  Select Y to enable water barometer
+#prize add by huarui, hoperf hp5804 , 20200402 start
+
+#prize add by huangjiwu, fm ant , 20200720 start
+config PRIZE_FM_ANT_SWITCH
+	bool "fm ant switch fun"
+	default n
+	help
+	  Select Y to enable prize fm ant switch fun
+#prize add by huarui, fm ant switch , 20200720 start
+
+#prize added by chenjiaxi, prize_dual_camera driver, 20190111-start
+source "drivers/misc/mediatek/prize/dual_camera/Kconfig"
+#prize added by chenjiaxi, prize_dual_camera driver, 20190111-end
+
+#prize added by chenjiaxi, prize_dual_camera_als driver, 20200922-start
+source "drivers/misc/mediatek/prize/dual_camera_als/Kconfig"
+#prize added by chenjiaxi, prize_dual_camera_als driver, 20200922-end
+
+#prize add by huarui, haptic drv , 20200402 start
+config PRIZE_HAPTIC_AW8695
+	tristate "haptic drv IC driver"
+	default n
+	depends on !MTK_VIBRATOR
+	  ---help---
+	  Vibrator driver support for MediaTek SOC.
+#prize add by huarui, haptic drv , 20200402 start
+
+#prize-add prize-wangyunqing-20181110-start
+#source "drivers/misc/mediatek/prize/hardware_info/Kconfig"
+#prize-add prize-wangyunqing-20181110-end
+
+#prize-add prize-zhaopengge-20200915-start
+source "drivers/misc/mediatek/prize/aw2028_led/Kconfig"
+source "drivers/misc/mediatek/prize/aw2015/Kconfig"
+source "drivers/misc/mediatek/prize/aw2016a/Kconfig"
+#prize-add prize-zhaopengge-20200915-end
+
+#prize added by chenjiaxi, ir camera motor drv, 20201117-start
+source "drivers/misc/mediatek/prize/ir_camera_motor/Kconfig"
+#prize added by chenjiaxi, ir camera motor drv, 20201117-end
+
+source "drivers/misc/mediatek/prize/lcd_bias/Kconfig"
+
+#prize add by zhaopengge-20210630-start
+source "drivers/misc/mediatek/prize/tm1621d/Kconfig"
+#prize add by zhaopengge-20210630-start
+
+#prize add by lipengpeng 20210220 start 
+
+config PRIZE_AIR_QUALITY
+	bool "air quality enable"
+	default n
+	help
+	  Select Y to enable prize air qualit enable
+#prize add by lipengpeng 20210220 end 
+
+
+#prize add by liaojie, prize_exergen build support 20210128 start
+source "drivers/misc/mediatek/prize/exergen/Kconfig"
+#prize add by liaojie, prize_exergen build support 20210128 end
+
+#prize added by chenjiaxi, laser light gpio, 20210108-start
+source "drivers/misc/mediatek/prize/laser_light_gpio/Kconfig"
+#prize added by chenjiaxi, laser light gpio, 20210108-end
+
